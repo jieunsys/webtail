@@ -1,0 +1,17 @@
+server:
+  port: 8070
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    prefix: classpath:/thymeleaf/
+    suffix: .html
+    cache: false
+  application:
+    name: webtail
+
+logging:
+  config: classpath:logback.xml
+
+  

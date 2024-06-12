@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>web tail</title>
+<style>
+label {
+  display: inline-flex;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+[type="checkbox"] {
+  appearance: none;
+  position: fixed;
+  border: max(2px, 0.1em) solid gray;
+  border-radius: 1.25em;
+  width: 2.25em;
+  height: 1.25em;
+  top: 0;
+}
+
+[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  transform: scale(0.8);
+  background-color: gray;
+  transition: left 250ms linear;
+}
+
+[type="checkbox"]:checked {
+  background-color: tomato;
+  border-color: tomato;
+}
+
+[type="checkbox"]:checked::before {
+  background-color: white;
+  left: 1em;
+}
+
+[type="checkbox"]:disabled {
+  border-color: lightgray;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+[type="checkbox"]:disabled:before {
+  background-color: lightgray;
+}
+
+[type="checkbox"]:disabled + span {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+[type="checkbox"]:focus-visible {
+  outline-offset: max(2px, 0.1em);
+  outline: max(2px, 0.1em) solid tomato;
+}
+
+[type="checkbox"]:enabled:hover {
+  box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+}
+
+body {
+  display: grid;
+  align-items: center;
+  height: 100vh;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+</style>
+</head>
+
+
+<body>
+	<label class="switch">
+		<input type="checkbox" id="checkbox1">
+		<span class="slider round"></span>
+	</label>
+	<div id="div1"></div>
+</body>
+</html>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+	var url1 = [[${webtailurl}]];
+/*]]>*/
+</script>
+
+<script type="text/javascript">
+	let socket = new WebSocket(url1);
+	checkbox1.checked=true;
+	
+	socket.onmessage = function(event){
+		let message = event.data;
+		
+		let messageElem = document.createElement('div');
+		messageElem.textContent = message;
+		
+		document.getElementById('div1').append(messageElem);
+		
+		const checkbox = document.getElementById('checkbox1');
+		if(checkbox.checked){
+			document.getElementById('div1').scrollIntoView({block:"end"});
+		}else{
+		}
+
+	}
+</script>
+
