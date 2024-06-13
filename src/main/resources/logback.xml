@@ -20,7 +20,7 @@
 	        </layout>
     	</encoder>
     	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-    		<fileNamePattern>${LOG_DIR}/logging-test-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+    		<fileNamePattern>c:/tmp/tmp.-d{yyyy-MM-dd}-%i.log</fileNamePattern>
     		<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
     			<maxFileSize>50MB</maxFileSize>
     		</timeBasedFileNamingAndTriggeringPolicy>
