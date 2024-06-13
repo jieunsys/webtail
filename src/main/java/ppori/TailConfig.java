@@ -20,11 +20,10 @@ public class TailConfig {
 	
 	@PostConstruct
 	public void executeAsync() {
-		String logfilePath = "c:/tmp/tmp.log";
-		log.info("@PostConstruct logfile="+logfilePath);
+		log.info("#### SET logfilePath = " + Environments.getLogFilePath());
 		
 		TailThread tailThread = applicationContext.getBean(TailThread.class);
-		tailThread.setLogfile(logfilePath);
+		tailThread.setLogfile(Environments.getLogFilePath());
 		taskExecutor.execute(tailThread);
 	}
 }

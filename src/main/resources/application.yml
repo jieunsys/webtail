@@ -1,5 +1,6 @@
 server:
   port: 8070
+  shutdown: graceful
 
 spring:
   main:
@@ -8,10 +9,14 @@ spring:
     prefix: classpath:/thymeleaf/
     suffix: .html
     cache: false
+  lifecycle:
+    timeout-per-shutdown-phase: 1s
   application:
     name: webtail
 
 logging:
   config: classpath:logback.xml
 
-  
+
+
+

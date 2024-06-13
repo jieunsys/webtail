@@ -12,8 +12,8 @@ public class WebtailController {
 
 	@GetMapping(path="/a2")
 	public String webtail(Model model) {
-		log.info("### start webtail");
-		model.addAttribute("webtailurl","ws://localhost:8070/webtail1");
+		log.info("#### SET webtail.url = " + Environments.getWebSocketUrl());
+		model.addAttribute("webtailurl", Environments.getWebSocketUrl());
 		return "webtail";
 	}
 	
