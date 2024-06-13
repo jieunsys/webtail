@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class WebtailController {
 
-	@GetMapping(path="/a2")
+	@GetMapping(path="/tail")
 	public String webtail(Model model) {
 		log.info("#### SET webtail.url = " + Environments.getWebSocketUrl());
 		model.addAttribute("webtailurl", Environments.getWebSocketUrl());

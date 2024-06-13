@@ -11,3 +11,7 @@
 - -Dwebsocket.handler = Enter /webtail1 to associate it with the websocket
 
 - Click the top left toggle button to toggle auto-scroll on/off
+
+- In your browser, go to http://localhost:8070/tail
+  because of @GetMapping(path="/tail")
+  
