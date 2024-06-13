@@ -25,6 +25,8 @@ public class Environments {
 		Environments.webSocketUrl = System.getProperty("websocket.url");
 		Environments.webSocketHandler = System.getProperty("websocket.handler");
 		
+		
+		
 		log.info("#### active = " + active);
 		log.info("#### logFilePath = " + Environments.logFilePath);
 		log.info("#### webSocketUrl = " + Environments.webSocketUrl);
